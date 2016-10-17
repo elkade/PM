@@ -1,8 +1,6 @@
 %2016-10-17
 format compact
-clear
-clc
-
+%zad1-----------------------------------------------
 opcje = optimset('linprog');
 opcje = optimset(opcje, 'Display', 'iter', 'LargeScale', 'off', 'Simplex', 'on');
 
@@ -42,6 +40,68 @@ for i=1:4
    %gtext(sprintf('g%d', i));
 end
 
-x_opt = [A(i,:);A(3,:)]\[b(1);b(3)]
+x_opt = [A(1,:);A(3,:)]\[b(1);b(3)]
 
-f_opt = f'*x_opt
+f_opt = f*x_opt
+%zad2-----------------------------------------------
+clear
+clc
+%linprog przyjmuje nierównoœci mniejsze równe
+
+opcje = optimset('linprog');
+opcje = optimset(opcje, 'Display', 'iter', 'LargeScale', 'off', 'Simplex', 'on');
+
+f = [5 2 3 5];
+
+A = [-1 1 -7 -3
+    2 3 1 -4];
+
+Aeq = [1 2 2 1];
+beq = 9;
+
+b = [-4 5];
+
+lb = [0 0 0 0];
+ub = [];
+
+[x, fval, exitflag, output, lambda] = linprog(f, A, b, Aeq, beq,lb, ub, [], opcje )
+%zad3_ciêce_desek----------------------------------------
+%deski 2m
+%N = 7 pó³ek
+%30cm x 80cm
+%ile desek potrzeba na wykonanie?
+%najmniejsza liczba
+
+%trzeba ustaliæ sposób ciêcia - np najpierw krótkie, potem d³ugie czy
+%odwrotnie
+%ustalamy macierz ograniczeñ wynikaj¹c¹ ze sposobu ciêcia
+
+%   s1  s2  s3
+%80 2   1   x   3*N % ten x to chyba 0
+%30 1   4   6   2*N
+%   10  0   20
+
+%Xi - liczba desek pociêtych sposobem Si
+
+%szukamy minimum min(x1+x2+x3)
+%2x1+x2>=3*N
+%x1+4x2+6x3>=2*N
+%x>=0
+
+opcje = optimset('linprog');
+opcje = optimset(opcje, 'Display', 'iter', 'LargeScale', 'off', 'Simplex', 'on');
+
+f = [1 1 1];
+
+A = [-2 -1 0
+    -1 -4 -6];
+
+b = [-21 -14];
+
+Aeq = [];
+beq = [];
+
+lb = [0 0 0 0];
+ub = [];
+
+[x, fval, exitflag, output, lambda] = linprog(f, A, b, Aeq, beq,lb, ub, [], opcje )
