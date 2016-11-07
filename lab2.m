@@ -11,8 +11,8 @@ A = [3 -1 2 -4 5
 
 b = [7 12 7];
 
-lb = [-10 -5 -30 -8 -20];
+lb = [];%[-10 -5 -30 -8 -20];
 
 [x, fval, exitflag, output, lambda] = linprog(-f, A, b, [],[],lb, [], [], opcje )
 
-[x, fval] = simplex(f, A, b, lb)
+[x, fval] = simplex(f, A, b)
