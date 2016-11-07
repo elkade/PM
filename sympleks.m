@@ -1,5 +1,6 @@
 function [x,exitflag] = sympleks(f,A,b,lb)
 b=b-dot(A,ones(size(A,1),1)*lb,2)';
+b
 f=[f zeros(1,size(A,1))];
 A=[A eye(size(A,1))];
 z=zeros(size(A,2),1);
@@ -21,10 +22,10 @@ outg=indices(out);
 bf(out)=bf(out)/A(out,in);
 A(out,:)=A(out,:)./A(out,in);
 cb(out)=c(in);
-Mul=(A(:,in)./A(out,:)(:,in));
+Mul=(A(:,in)./A(out,in));
 Mul(out)=0;
 bf=bf-bf(out)*Mul;
-Dif=(A(:,in)./A(out,:)(:,in))*A(out,:);
+Dif=(A(:,in)./A(out,in))*A(out,:);
 Dif(out,:)=zeros(1,size(A,2));
 disp('aktualna tabelka sympleksowa:')
 A=A-Dif;
