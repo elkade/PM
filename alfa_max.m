@@ -18,7 +18,7 @@ function [ a1, a2, a3 ] = alfa_max( F, a0, d )
 end
 
 function res = cond(F, a1, a2, a3)
-    assert (a1 ~= a2)
-    assert (a3 ~= a2)
+    assert(a1 ~= a2)
+    assert(a3 ~= a2)
     res = (a1 < a2 && a2 < a3 && F(a1) > F(a2) && F(a3) > F(a2));
 end

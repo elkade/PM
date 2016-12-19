@@ -14,6 +14,7 @@ fplot(@(alfa)fun(x0+alfa*d0), [a1, a3]);
 options = optimset('Display','iter');
 fminbnd(@(alfa)fun(x0+alfa*d0), a1, a3, options)
 
-%[alfa1,n_iter] = parabola(@(alfa)fun(x0+alfa*d0), [a1, a2, a3], e);
+[alfa1,n_iter] = parabola(@(alfa)fun(x0+alfa*d0), [a1, a2, a3], e)
 
-alfaN = Newton(@(alfa)fun(x0+alfa*d0), a0, d0, e);
+%alfaN = Newton(@(alfa)fun(x0+alfa*d0), a0, d0, e);
+%7.269726e+00
