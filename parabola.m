@@ -6,8 +6,8 @@ a3 = p(3);
 
 k = 1;
 [a1 a2 a3]
-while k < 10
-    a = aa(@w, F, [a1,a2,a3])
+while a3-a1 > e
+    a = aa(@w, F, [a1,a2,a3]);
     if abs(a-a2)<e
         n_iter = k;
         alfa1 = a;
@@ -22,8 +22,8 @@ while k < 10
         a2 = a;
     end
     
-[a1 a2 a3]
-F(a)
+[a1 a2 a3];
+F(a);
 k = k+1;
 end
 alfa1 = a;
@@ -52,9 +52,9 @@ a1 = p(1);
 a2 = p(2);
 a3 = p(3);
 
-m = (a2^2-a3^2)*w(F, p, a1) + (a3^2-a1^2)*w(F, p, a2) + (a1^2-a2^2)*w(F, p, a3);
+m = (a2^2-a3^2)*F(a1) + (a3^2-a1^2)*F(a2) + (a1^2-a2^2)*F(a3);
 
-n =(a2-a3)*w(F, p, a1) + (a3-a1)*w(F, p, a2) + (a1-a2)*w(F, p, a3);
+n =(a2-a3)*F(a1) + (a3-a1)*F(a2) + (a1-a2)*F(a3);
 
 res = 0.5 * m/n;
 
