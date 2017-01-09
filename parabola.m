@@ -6,7 +6,7 @@ a3 = p(3);
 
 k = 1;
 [a1 a2 a3]
-while a3-a1 > e
+while abs(a3-a1) > e
     a = aa(@w, F, [a1,a2,a3]);
     if abs(a-a2)<e
         n_iter = k;
@@ -22,7 +22,7 @@ while a3-a1 > e
         a2 = a;
     end
     
-[a1 a2 a3];
+[a1 a2 a3]
 F(a);
 k = k+1;
 end

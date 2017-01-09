@@ -9,8 +9,8 @@ function [x,fval,it]=DFP(fun,x0,e)
 
 
         [a1, a2, a3] = alfa_max(@(alfa)fun(xk+alfa*(-grad)), 0, 1);
-        %ak = parabola(@(alfa)fun((xk+alfa*(-grad))'), [a1, a2, a3], 1e-4);
-        ak = Newton(@(alfa)fun((xk+alfa*(-grad))'), 0, -grad', 1e-4);
+        ak = parabola(@(alfa)fun((xk+alfa*(-grad))'), [a1, a2, a3], 1e-4);
+        %ak = Newton(@(alfa)fun((xk+alfa*(-grad))'), 0, -grad', 1e-4);
         xk1 = xk + ak * -grad;
 
         sk = xk1-xk;
